@@ -17,6 +17,10 @@ public class ActorService {
     private final ActorMapper actorMapper;
 
     public List<ActorGetDto> getAllActors(){
-        return actorDao.findAll().stream().map(actor -> actorMapper.fromEntity(actor)).collect(Collectors.toList());
+        return actorDao.findAll().stream().map(actorMapper::fromEntity).collect(Collectors.toList());
+    }
+
+    public List<ActorGetDto> getActorsByFirstnameOrLastname(String firstname, String lastname){
+        return actorDao.findByFirstnameOrLastname(firstname,lastname).stream().map(actorMapper::fromEntity).collect(Collectors.toList());
     }
 }
