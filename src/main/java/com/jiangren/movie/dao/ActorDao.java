@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ActorDao extends JpaRepository<Actor, Long> {
+
     @Query("select a from Actor a where (:firstname is null or a.firstname = :firstname)"
             + "and (:lastname is null or a.lastname = :lastname)")
     List<Actor> findByFirstnameOrLastname(@Param("firstname") String firstname,

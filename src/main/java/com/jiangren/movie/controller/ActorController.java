@@ -18,11 +18,13 @@ import java.util.List;
 public class ActorController {
     private final ActorService actorService;
 
+    //http://localhost:8080/actors
     @GetMapping
     public ResponseEntity<List<ActorGetDto>> find(){
         return ResponseEntity.ok(actorService.getAllActors());
     }
 
+    //http://localhost:8080/actors/find?firstname=Malin&lastname=Akerman
     @GetMapping(value="/find")
     public ResponseEntity<List<ActorGetDto>> findByFirstnameOrLastName(@RequestParam(required = false) String firstname,
                                                                        @RequestParam(required = false) String lastname){
