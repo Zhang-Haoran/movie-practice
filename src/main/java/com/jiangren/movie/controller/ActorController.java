@@ -1,6 +1,6 @@
 package com.jiangren.movie.controller;
 
-import com.jiangren.movie.dto.ActorGetDto;
+import com.jiangren.movie.dto.actor.ActorGetDto;
 import com.jiangren.movie.service.ActorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

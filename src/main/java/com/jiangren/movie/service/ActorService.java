@@ -1,7 +1,7 @@
 package com.jiangren.movie.service;
 
 import com.jiangren.movie.dao.ActorDao;
-import com.jiangren.movie.dto.ActorGetDto;
+import com.jiangren.movie.dto.actor.ActorGetDto;
 import com.jiangren.movie.mapper.ActorMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
