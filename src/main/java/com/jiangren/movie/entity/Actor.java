@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -28,10 +27,4 @@ public class Actor {
 
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
-
-    @ManyToMany
-    @JoinTable(name = "movies_actors",
-            joinColumns = @JoinColumn(name = "movie_id"),
-            inverseJoinColumns = @JoinColumn(name = "actor_id"))
-    private Set<Movie> movies;
 }
