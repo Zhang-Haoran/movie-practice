@@ -1,13 +1,11 @@
 package com.jiangren.movie.controller;
 
 import com.jiangren.movie.dto.actor.ActorGetDto;
+import com.jiangren.movie.dto.actor.ActorPostDto;
 import com.jiangren.movie.service.ActorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -25,5 +23,10 @@ public class ActorController {
             return ResponseEntity.ok(actorService.getActorsByFirstnameOrLastname(firstname, lastname));
         }
         return ResponseEntity.ok(actorService.getAllActors());
+    }
+
+    @PostMapping
+    public ResponseEntity<ActorGetDto> create(@RequestBody ActorPostDto actorPostDto){
+        return ResponseEntity.ok(actorService.create(actorPostDto));
     }
 }
