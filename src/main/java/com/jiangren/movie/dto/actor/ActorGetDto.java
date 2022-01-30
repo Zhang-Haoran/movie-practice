@@ -9,8 +9,12 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ActorGetDto {
     private Long id;
+
     private String firstname;
+
     private String lastname;
+
     private String gender;
+
     private LocalDate dateOfBirth;
 }
