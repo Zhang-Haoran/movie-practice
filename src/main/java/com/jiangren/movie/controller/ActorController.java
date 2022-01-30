@@ -20,14 +20,9 @@ public class ActorController {
 
     //http://localhost:8080/actors
     @GetMapping
-    public ResponseEntity<List<ActorGetDto>> find(){
+    public ResponseEntity<List<ActorGetDto>> find(@RequestParam(required = false) String firstname,
+                                                  @RequestParam(required = false) String lastname){
+        if (firstname != null || lastname != null) return ResponseEntity.ok(actorService.getActorsByFirstnameOrLastname(firstname, lastname));
         return ResponseEntity.ok(actorService.getAllActors());
-    }
-
-    //http://localhost:8080/actors/find?firstname=Malin&lastname=Akerman
-    @GetMapping(value="/find")
-    public ResponseEntity<List<ActorGetDto>> findByFirstnameOrLastName(@RequestParam(required = false) String firstname,
-                                                                       @RequestParam(required = false) String lastname){
-        return ResponseEntity.ok(actorService.getActorsByFirstnameOrLastname(firstname, lastname));
     }
 }
