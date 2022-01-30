@@ -1,3 +1,10 @@
+-- drop table movie_revenues;
+-- drop table movies_actors;
+-- drop table actors;
+-- drop table movies;
+-- drop table directors;
+
+
 CREATE TABLE directors (
                            director_id SERIAL Primary key,
                            first_name varchar(30),
