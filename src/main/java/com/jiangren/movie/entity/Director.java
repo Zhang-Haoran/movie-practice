@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -27,4 +28,7 @@ public class Director {
 
     @Column(name = "nationality")
     private String nationality;
+
+    @OneToMany(mappedBy = "director")
+    private Set<Movie> movies;
 }

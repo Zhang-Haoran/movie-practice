@@ -18,7 +18,6 @@ import java.util.List;
 public class ActorController {
     private final ActorService actorService;
 
-    //http://localhost:8080/actors
     @GetMapping
     public ResponseEntity<List<ActorGetDto>> find(@RequestParam(required = false) String firstname,
                                                   @RequestParam(required = false) String lastname) {
