@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "org.flywaydb.flyway" version "8.4.3"
 }
 
 group = 'com.jiangren'
@@ -25,6 +26,7 @@ dependencies {
     implementation 'org.mapstruct:mapstruct:1.4.1.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
     annotationProcessor "org.mapstruct:mapstruct-processor:1.4.0.Beta1"
+    implementation "org.flywaydb:flyway-core:6.5.7"
 }
 
 tasks.named('test') {
