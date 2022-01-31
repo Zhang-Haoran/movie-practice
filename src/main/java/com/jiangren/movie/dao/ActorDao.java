@@ -16,4 +16,6 @@ public interface ActorDao extends JpaRepository<Actor, Long> {
     List<Actor> findByFirstnameOrLastname(@Param("firstname") String firstname,
                                           @Param("lastname") String lastname);
 
+    List<Actor> findAllByOrderByIdDesc();
+
 }

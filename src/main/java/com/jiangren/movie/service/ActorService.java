@@ -9,6 +9,7 @@ import com.jiangren.movie.mapper.ActorMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,7 @@ public class ActorService {
     private final ActorMapper actorMapper;
 
     public List<ActorGetDto> getAllActors(){
-        return actorDao.findAll().stream().map(actorMapper::fromEntity).collect(Collectors.toList());
+        return actorDao.findAllByOrderByIdDesc().stream().map(actorMapper::fromEntity).collect(Collectors.toList());
     }
 
     public List<ActorGetDto> getActorsByFirstnameOrLastname(String firstname, String lastname){
@@ -41,5 +42,9 @@ public class ActorService {
 
     public void delete(Long id){
         actorDao.deleteById(id);
+    }
+
+    public List<ActorGetDto> getById(Long id){
+        return actorDao.findById(id).stream().map(actorMapper::fromEntity).collect(Collectors.toList());
     }
 }
