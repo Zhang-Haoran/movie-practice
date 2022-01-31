@@ -3,6 +3,7 @@ package com.jiangren.movie.service;
 import com.jiangren.movie.dao.ActorDao;
 import com.jiangren.movie.dto.actor.ActorGetDto;
 import com.jiangren.movie.dto.actor.ActorPostDto;
+import com.jiangren.movie.dto.actor.ActorPutDto;
 import com.jiangren.movie.entity.Actor;
 import com.jiangren.movie.mapper.ActorMapper;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +32,13 @@ public class ActorService {
 
     public ActorGetDto create(ActorPostDto actorPostDto){
         Actor actor = actorMapper.toEntity(actorPostDto);
+        return actorMapper.fromEntity(actorDao.save(actor));
+    }
+
+    public ActorGetDto update(Long id, ActorPutDto actorPutDto){
+        Actor actor = new Actor();
+        actorMapper.copy(actorPutDto, actor);
+        actor.setId(id);
         return actorMapper.fromEntity(actorDao.save(actor));
     }
 }

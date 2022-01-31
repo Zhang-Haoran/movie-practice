@@ -2,6 +2,7 @@ package com.jiangren.movie.controller;
 
 import com.jiangren.movie.dto.actor.ActorGetDto;
 import com.jiangren.movie.dto.actor.ActorPostDto;
+import com.jiangren.movie.dto.actor.ActorPutDto;
 import com.jiangren.movie.service.ActorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +29,10 @@ public class ActorController {
     @PostMapping
     public ResponseEntity<ActorGetDto> create(@RequestBody ActorPostDto actorPostDto){
         return ResponseEntity.ok(actorService.create(actorPostDto));
+    }
+
+    @PutMapping
+    public ResponseEntity<ActorGetDto> update(@RequestParam Long id, @RequestBody ActorPutDto actorPutDto){
+        return ResponseEntity.ok(actorService.update(id,actorPutDto));
     }
 }
