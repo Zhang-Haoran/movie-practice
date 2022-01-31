@@ -9,10 +9,7 @@ import com.jiangren.movie.mapper.ActorMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,5 +37,9 @@ public class ActorService {
         actorMapper.copy(actorPutDto, actor);
         actor.setId(id);
         return actorMapper.fromEntity(actorDao.save(actor));
+    }
+
+    public void delete(Long id){
+        actorDao.deleteById(id);
     }
 }

@@ -35,4 +35,10 @@ public class ActorController {
     public ResponseEntity<ActorGetDto> update(@RequestParam Long id, @RequestBody ActorPutDto actorPutDto){
         return ResponseEntity.ok(actorService.update(id,actorPutDto));
     }
+
+    @DeleteMapping
+    public ResponseEntity<?> delete(@RequestParam Long id){
+        actorService.delete(id);
+        return ResponseEntity.ok("Deleted");
+    }
 }
