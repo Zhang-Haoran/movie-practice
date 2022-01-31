@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "directors")
 public class Director {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "director_id")
     private Long id;
 

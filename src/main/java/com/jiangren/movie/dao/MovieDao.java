@@ -1,4 +1,7 @@
 package com.jiangren.movie.dao;
 
-public interface MovieDao {
+import com.jiangren.movie.entity.Movie;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MovieDao extends JpaRepository<Movie, Long> {
 }
