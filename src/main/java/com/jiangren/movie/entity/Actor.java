@@ -1,5 +1,6 @@
 package com.jiangren.movie.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,5 +32,6 @@ public class Actor {
 
     @ManyToMany
     @JoinTable(name = "movies_actors", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "actor_id"))
+    @JsonBackReference
     private Set<Movie> movies;
 }

@@ -1,9 +1,12 @@
 package com.jiangren.movie.dto.director;
 
+import com.jiangren.movie.entity.Movie;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
+
 @Data
 @NoArgsConstructor
 public class DirectorGetDto {
@@ -16,4 +19,6 @@ public class DirectorGetDto {
     private LocalDate dateOfBirth;
 
     private String nationality;
+
+    private Set<Movie> movies;
 }

@@ -1,5 +1,6 @@
 package com.jiangren.movie.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,5 +31,6 @@ public class Director {
     private String nationality;
 
     @OneToMany(mappedBy = "director")
+    @JsonBackReference
     private Set<Movie> movies;
 }

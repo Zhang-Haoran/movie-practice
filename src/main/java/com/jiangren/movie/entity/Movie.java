@@ -1,5 +1,6 @@
 package com.jiangren.movie.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,12 +35,15 @@ public class Movie {
 
     @ManyToOne
     @JoinColumn(name = "director_id", nullable = false)
+    @JsonBackReference
     private Director director;
 
     @ManyToMany
     @JoinTable(name = "movies_actors", joinColumns = @JoinColumn(name = "actor_id"), inverseJoinColumns = @JoinColumn(name = "movie_id"))
+    @JsonBackReference
     private Set<Actor> actors;
 
     @OneToOne(mappedBy = "movie")
+    @JsonBackReference
     private MovieRevenue movieRevenue;
 }
