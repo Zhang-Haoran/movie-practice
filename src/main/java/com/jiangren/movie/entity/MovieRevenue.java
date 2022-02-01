@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "movie_revenues")
 public class MovieRevenue {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "revenue_id")
     private Long id;
 
