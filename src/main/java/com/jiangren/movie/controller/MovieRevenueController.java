@@ -16,8 +16,7 @@ public class MovieRevenueController {
     private final MovieRevenueService movieRevenueService;
 
     @GetMapping
-    public ResponseEntity<List<MovieRevenueGetDto>> find(@RequestParam(required = false) String firstname,
-                                                     @RequestParam(required = false) String lastname) {
+    public ResponseEntity<List<MovieRevenueGetDto>> find() {
         return ResponseEntity.ok(movieRevenueService.getAllMovieRevenues());
     }
 
