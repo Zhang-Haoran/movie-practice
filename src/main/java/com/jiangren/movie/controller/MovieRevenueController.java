@@ -4,6 +4,7 @@ import com.jiangren.movie.dto.movieRevenue.MovieRevenueGetDto;
 import com.jiangren.movie.dto.movieRevenue.MovieRevenuePostDto;
 import com.jiangren.movie.dto.movieRevenue.MovieRevenuePutDto;
 import com.jiangren.movie.service.MovieRevenueService;
+import com.jiangren.movie.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MovieRevenueController {
     private final MovieRevenueService movieRevenueService;
+    private final MovieService movieService;
 
     @GetMapping
     public ResponseEntity<List<MovieRevenueGetDto>> find() {
@@ -21,7 +23,9 @@ public class MovieRevenueController {
     }
 
     @PostMapping
-    public ResponseEntity<MovieRevenueGetDto> create(@RequestBody MovieRevenuePostDto movieRevenuePostDto) {
+    public ResponseEntity<?> create(@RequestBody MovieRevenuePostDto movieRevenuePostDto) {
+        if (movieRevenueService.getByMovieId(movieRevenuePostDto.getMovieId()).size() > 0) return ResponseEntity.status(409).body("Movie has been associated with other revenue");
+        if (movieService.getById(movieRevenuePostDto.getMovieId()).size() == 0) return ResponseEntity.status(404).body("Movie id not found");
         return ResponseEntity.ok(movieRevenueService.create(movieRevenuePostDto));
     }
 

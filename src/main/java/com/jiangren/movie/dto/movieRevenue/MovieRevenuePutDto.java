@@ -1,8 +1,9 @@
 package com.jiangren.movie.dto.movieRevenue;
 
-import com.jiangren.movie.entity.Movie;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.Transient;
 
 @Data
 @NoArgsConstructor
@@ -11,5 +12,6 @@ public class MovieRevenuePutDto {
 
     private Float internationalTakings;
 
-    private Movie movie;
+    @Transient
+    private Long movieId;
 }
