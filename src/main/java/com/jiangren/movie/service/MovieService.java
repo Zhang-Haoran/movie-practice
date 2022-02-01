@@ -5,14 +5,12 @@ import com.jiangren.movie.dao.MovieDao;
 import com.jiangren.movie.dto.movie.MovieGetDto;
 import com.jiangren.movie.dto.movie.MoviePostDto;
 import com.jiangren.movie.dto.movie.MoviePutDto;
-import com.jiangren.movie.entity.Director;
 import com.jiangren.movie.entity.Movie;
 import com.jiangren.movie.mapper.MovieMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
