@@ -36,6 +36,8 @@ public class MovieRevenueService {
 
     public MovieRevenueGetDto update(Long id, MovieRevenuePutDto movieRevenuePutDto) {
         MovieRevenue movieRevenue = new MovieRevenue();
+        movieDao.findById(movieRevenuePutDto.getMovieId()).ifPresent(
+                movieRevenue::setMovie);
         movieRevenueMapper.copy(movieRevenuePutDto, movieRevenue);
         movieRevenue.setId(id);
         return movieRevenueMapper.fromEntity(movieRevenueDao.save(movieRevenue));
