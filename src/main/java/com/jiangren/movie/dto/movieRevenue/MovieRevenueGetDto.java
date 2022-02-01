@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 public class MovieRevenueGetDto {
     private Long id;
 
-    private Number domesticTakings;
+    private Float domesticTakings;
 
-    private Number internationalTakings;
+    private Float internationalTakings;
 
     private Movie movie;
 }

@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class MovieRevenuePostDto {
-    private Number domesticTakings;
+    private Float domesticTakings;
 
-    private Number internationalTakings;
+    private Float internationalTakings;
 
     private Movie movie;
 }

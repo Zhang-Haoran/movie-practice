@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
-@RequestMapping("/movies-revenues")
+@RequestMapping("/movie-revenues")
 @RequiredArgsConstructor
 public class MovieRevenueController {
     private final MovieRevenueService movieRevenueService;
