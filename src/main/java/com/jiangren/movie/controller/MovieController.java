@@ -31,13 +31,13 @@ public class MovieController {
     @PutMapping
     public ResponseEntity<?> update(@RequestParam Long id, @RequestBody MoviePutDto moviePutDto) {
         if (directorService.getById(moviePutDto.getDirectorId()).size() == 0) return ResponseEntity.status(404).body("Director id not found");
-        if (movieService.getById(id).size() == 0) return ResponseEntity.status(404).body("Id not found");
+        if (movieService.getById(id).size() == 0) return ResponseEntity.status(404).body("Movie id not found");
         return ResponseEntity.ok(movieService.update(id, moviePutDto));
     }
 
     @DeleteMapping
     public ResponseEntity<?> delete(@RequestParam Long id) {
-        if (movieService.getById(id).size() == 0) return ResponseEntity.status(404).body("Id not found");
+        if (movieService.getById(id).size() == 0) return ResponseEntity.status(404).body("Movie id not found");
         try {
             movieService.delete(id);
             return ResponseEntity.ok().body("Deleted");

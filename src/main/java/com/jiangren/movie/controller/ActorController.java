@@ -31,13 +31,13 @@ public class ActorController {
 
     @PutMapping
     public ResponseEntity<?> update(@RequestParam Long id, @RequestBody ActorPutDto actorPutDto) {
-        if (actorService.getById(id).size() == 0) return ResponseEntity.status(404).body("Id not found");
+        if (actorService.getById(id).size() == 0) return ResponseEntity.status(404).body("actor id not found");
         return ResponseEntity.ok(actorService.update(id, actorPutDto));
     }
 
     @DeleteMapping
     public ResponseEntity<?> delete(@RequestParam Long id) {
-        if (actorService.getById(id).size() == 0) return ResponseEntity.status(404).body("Id not found");
+        if (actorService.getById(id).size() == 0) return ResponseEntity.status(404).body("actor id not found");
         try {
             actorService.delete(id);
             return ResponseEntity.ok().body("Deleted");

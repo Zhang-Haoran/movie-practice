@@ -32,13 +32,14 @@ public class MovieRevenueController {
     @PutMapping
     public ResponseEntity<?> update(@RequestParam Long id, @RequestBody MovieRevenuePutDto movieRevenuePutDto) {
         if (movieRevenueService.getByMovieId(movieRevenuePutDto.getMovieId()).size() > 0) return ResponseEntity.status(409).body("Movie has been associated with other revenue");
-        if (movieRevenueService.getById(id).size() == 0) return ResponseEntity.status(404).body("Id not found");
+        if (movieService.getById(movieRevenuePutDto.getMovieId()).size() == 0) return ResponseEntity.status(404).body("Movie id not found");
+        if (movieRevenueService.getById(id).size() == 0) return ResponseEntity.status(404).body("Revenue id not found");
         return ResponseEntity.ok(movieRevenueService.update(id, movieRevenuePutDto));
     }
 
     @DeleteMapping
     public ResponseEntity<?> delete(@RequestParam Long id) {
-        if (movieRevenueService.getById(id).size() == 0) return ResponseEntity.status(404).body("Id not found");
+        if (movieRevenueService.getById(id).size() == 0) return ResponseEntity.status(404).body("Revenue id not found");
         try {
             movieRevenueService.delete(id);
             return ResponseEntity.ok().body("Deleted");

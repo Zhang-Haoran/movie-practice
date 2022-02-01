@@ -29,13 +29,13 @@ public class DirectorController {
 
     @PutMapping
     public ResponseEntity<?> update(@RequestParam Long id, @RequestBody DirectorPutDto directorPutDto) {
-        if (directorService.getById(id).size() == 0) return ResponseEntity.status(404).body("Id not found");
+        if (directorService.getById(id).size() == 0) return ResponseEntity.status(404).body("Director id not found");
         return ResponseEntity.ok(directorService.update(id, directorPutDto));
     }
 
     @DeleteMapping
     public ResponseEntity<?> delete(@RequestParam Long id) {
-        if (directorService.getById(id).size() == 0) return ResponseEntity.status(404).body("Id not found");
+        if (directorService.getById(id).size() == 0) return ResponseEntity.status(404).body("Director id not found");
         try {
             directorService.delete(id);
             return ResponseEntity.ok().body("Deleted");
