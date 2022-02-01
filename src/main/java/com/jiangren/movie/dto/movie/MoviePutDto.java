@@ -4,19 +4,23 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Transient;
 import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
 public class MoviePutDto {
-    private String movie_name;
+    private String movieName;
 
-    private String movie_lang;
+    private String movieLang;
 
-    private String age_certificate;
+    private String ageCertificate;
 
-    private Integer movie_length;
+    private Integer movieLength;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate release_date;
+    private LocalDate releaseDate;
+
+    @Transient
+    private Long directorId;
 }

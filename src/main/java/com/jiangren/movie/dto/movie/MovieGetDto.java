@@ -10,15 +10,15 @@ import java.time.LocalDate;
 public class MovieGetDto {
     private Long id;
 
-    private String movie_name;
+    private String movieName;
 
-    private String movie_lang;
+    private String movieLang;
 
-    private String age_certificate;
+    private String ageCertificate;
 
-    private Integer movie_length;
+    private Integer movieLength;
 
-    private LocalDate release_date;
+    private LocalDate releaseDate;
 
 }
 

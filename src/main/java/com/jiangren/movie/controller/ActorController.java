@@ -40,7 +40,7 @@ public class ActorController {
         if (actorService.getById(id).size() == 0) return ResponseEntity.status(404).body("Id not found");
         try {
             actorService.delete(id);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok().body("Deleted");
         } catch (Exception e) {
             return ResponseEntity.status(422).body("Foreign key constraint");
         }
