@@ -32,7 +32,6 @@ Java 11 environment
  - modify PostgreSQL database username and password to yours in src\main\resources\application.properties 
  - run the application
  - access through http://localhost:8080
- 
 
 # Coding Standard
 
@@ -41,3 +40,27 @@ Java 11 environment
 # Test
 
 - Junit
+
+# API
+* /actors
+    * GET http://localhost:8080/actors
+    * POST http://localhost:8080/actors
+    * GET http://localhost:8080/actors?firstname=Ziyi&lastname=Zhang
+    * PUT http://localhost:8080/actors?id=2
+    * DELETE http://localhost:8080/actors?id=148
+* /directors
+    * GET http://localhost:8080/directors
+    * GET http://localhost:8080/directors?firstname=Kinji&lastname=Fukasaku
+    * POST http://localhost:8080/directors
+    * PUT http://localhost:8080/directors?id=38
+    * DELETE http://localhost:8080/directors?id=32
+* /movies
+    * GET http://localhost:8080/movies
+    * POST http://localhost:8080/movies
+    * PUT http://localhost:8080/movies?id=1
+    * DELETE http://localhost:8080/movies?id=58
+* /movie-revenues
+    * GET http://localhost:8080/movie-revenues
+    * POST http://localhost:8080/movie-revenues
+    * PUT http://localhost:8080/movie-revenues?id=53
+    * DELETE http://localhost:8080/movie-revenues?id=53
