@@ -2,7 +2,7 @@
 
 ## Movie-practice
 
-Movie-practice is a backend server which was powered by Spring Boot for learning purpose.
+Movie-practice is a backend server for learning purpose which was powered by Spring Boot
 
 # Key Features
 
